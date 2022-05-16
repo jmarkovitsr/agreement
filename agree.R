@@ -10,6 +10,14 @@ library(here)
 
 # cargar base de datos
 df= read_csv('data/qp.csv')
+
+# mean mint
+
+
+df %>%
+  group_by(group) %>%
+  summarise(mean_mint = mean(MINT, na.rm = T), sd_ept = sd(MINT, na.rm = T))
+
 # mean ept
 
 df %>%
