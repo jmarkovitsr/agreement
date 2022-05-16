@@ -55,7 +55,7 @@ df %>%
 #modelo
 
 mod1 <- glmer( 
-  answer ~ lang + native + Frequent + 
+  answer ~ lang + native + Frequent + mass +
     (1 | participant) + 
     (1 | item),
   data = df, 
@@ -136,15 +136,15 @@ df1 %>%
 
 #modelo
 
-mod1 <- glmer( 
-  answer ~ lang + native + Frequent + 
+mod <- glmer( 
+  answer ~  + mass +
     (1 | participant) + 
     (1 | item),
-  data = df1, 
+  data = df,
   family = 'binomial',
   control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun=3e5)))
 
-summary(mod1)
+summary(mod)
 
 # modelo con mint
 
